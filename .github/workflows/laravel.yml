@@ -43,7 +43,7 @@ jobs:
         chmod 700 ~/.ssh
         ssh-keyscan $REMOTE_HOST >> ~/.ssh/known_hosts
         chmod 644 ~/.ssh/known_hosts
-        scp -r * root@$SERVER_IP:/var/www/html
+        scp -r * root@$REMOTE_HOST:/var/www/html
         env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SERVER_IP: ${{secrets.REMOTE_HOST}}
